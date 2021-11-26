@@ -12,26 +12,22 @@ void cout_board(char board[][8]) {
 		cout << "|     |     |     |     |     |     |     |     |" << endl;
 		cout << "|  ";
 		for (int j = 0; j < 8; j++) {
-			if (board[i][j] == 'X')
-				cout << "   |  ";
-			else {
-				if (board[i][j] == '*') {
-					HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-					SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 14));
-					cout << "@";
-				}
-				else if (board[i][j] == '0') {
-					HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-					SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 4));
-					cout << "O";
-				}
-				else {
-					cout << board[i][j];
-				}
+			if (board[i][j] == '*') {
 				HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-				SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 15));
-				cout << "  |  ";
+				SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 14));
+				cout << "@";
 			}
+			else if (board[i][j] == '0') {
+				HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+				SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 4));
+				cout << "O";
+			}
+			else {
+				cout << board[i][j];
+			}
+			HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+			SetConsoleTextAttribute(hStdOut, (WORD)((0 << 4) | 15));
+			cout << "  |  ";
 		}
 		cout << i+1 << endl;
 		cout << "|_____|_____|_____|_____|_____|_____|_____|_____|" << endl;
